@@ -177,7 +177,7 @@ fun BoxTest() {
 
 @Preview(showBackground = true)
 @Composable
-fun GreetingPreview() {
+fun TestOnePreview() {
     ComposeExplorerTheme {
         //CustomText()
         //ColumnTest()
