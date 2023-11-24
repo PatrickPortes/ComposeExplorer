@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
@@ -28,10 +29,12 @@ import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.BaselineShift
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.composeexplorer.ui.theme.ComposeExplorerTheme
@@ -119,9 +122,11 @@ fun CustomText3() {
 fun CustomText4() {
 
     SelectionContainer {
-        Column (
-            Modifier.padding(25.dp).height(200.dp), verticalArrangement = Arrangement.SpaceAround
-        ){
+        Column(
+            Modifier
+                .padding(25.dp)
+                .height(200.dp), verticalArrangement = Arrangement.SpaceAround
+        ) {
             Text(text = "Text Selectable!")
             DisableSelection {
                 Text(text = "Text Selectable!")
@@ -129,6 +134,42 @@ fun CustomText4() {
             Text(text = "Text Selectable!")
         }
     }
+}
+
+// Superscript/Subscript Text:
+@Composable
+fun CustomText5(
+    normalText: String,
+    superText: String,
+    normalFontSize: TextUnit = MaterialTheme.typography.titleLarge.fontSize,
+    superFontSize: TextUnit = MaterialTheme.typography.labelSmall.fontSize,
+    fontWeight: FontWeight = FontWeight.Normal,
+    fontColor: Color = Color.Blue
+) {
+
+    Text(
+        buildAnnotatedString {
+            withStyle(
+                style = SpanStyle(
+                    fontSize = normalFontSize,
+                    color = fontColor
+                )
+            ) {
+                append(normalText)
+            }
+
+            withStyle(
+                SpanStyle(
+                    fontSize = superFontSize,
+                    fontWeight = fontWeight,
+                    baselineShift = BaselineShift.Superscript
+                    //baselineShift = BaselineShift.Subscript
+                )
+            ) {
+                append(superText)
+            }
+        }
+    )
 }
 
 
@@ -146,6 +187,20 @@ fun TestTwoPreview() {
             CustomTest2()
             CustomText3()
             CustomText4()
+
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(5.dp),
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                CustomText5(
+                    normalText = "ABC",
+                    superText = "123",
+                    fontWeight = FontWeight.Bold,
+                    fontColor = Color.Black
+                )
+            }
         }
     }
 }
