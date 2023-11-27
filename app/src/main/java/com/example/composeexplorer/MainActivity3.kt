@@ -7,9 +7,11 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
@@ -59,6 +61,20 @@ class MainActivity3 : ComponentActivity() {
                                 " aliquam, integer placerat et turpis mi eros nec lobortis taciti," +
                                 " vehicula nisl litora tellus ligula porttitor metus."
                     )
+                    Column(
+                        modifier = Modifier
+                            .padding(20.dp),
+                        horizontalAlignment = Alignment.CenterHorizontally,
+                        verticalArrangement = Arrangement.Center
+                    ) {
+                        TestTextField()
+                        Spacer(modifier = Modifier.height(30.dp))
+                        GoogleButton(
+                            text = "Sign Up with Google",
+                            loadingText = "Creating Account...",
+                            onClicked = {Log.d("Google Button", "Clicked")}
+                        )
+                    }
                 }
             }
         }
@@ -131,6 +147,8 @@ fun TestTextField() {
         )
     )
 
+    Spacer(modifier = Modifier.height(30.dp))
+
     //OutLine TextField:
     OutlinedTextField(value = text,
         onValueChange = { newText ->
@@ -149,6 +167,8 @@ fun TestTextField() {
                 )
             }
         })
+
+    Spacer(modifier = Modifier.height(30.dp))
 
     //Basic TextField:
     BasicTextField(
@@ -184,12 +204,17 @@ fun TestThreePreview() {
             )
             Column(
                 modifier = Modifier
-                    .padding(20.dp)
-                    .height(300.dp),
+                    .padding(20.dp),
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Center
             ) {
                 TestTextField()
+                Spacer(modifier = Modifier.height(30.dp))
+                GoogleButton(
+                    text = "Sign Up with Google",
+                    loadingText = "Creating Account...",
+                    onClicked = {Log.d("Google Button", "Clicked")}
+                )
             }
         }
     }
