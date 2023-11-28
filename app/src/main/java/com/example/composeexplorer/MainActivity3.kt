@@ -16,6 +16,7 @@ import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material.icons.filled.Email
@@ -30,15 +31,23 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.text.input.KeyboardCapitalization
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.composeexplorer.ui.theme.ComposeExplorerTheme
+import com.example.composeexplorer.ui.theme.CustomColor1
+import com.example.composeexplorer.ui.theme.CustomColor2
 
 class MainActivity3 : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -72,7 +81,7 @@ class MainActivity3 : ComponentActivity() {
                         GoogleButton(
                             text = "Sign Up with Google",
                             loadingText = "Creating Account...",
-                            onClicked = {Log.d("Google Button", "Clicked")}
+                            onClicked = { Log.d("Google Button", "Clicked") }
                         )
                     }
                 }
@@ -180,6 +189,50 @@ fun TestTextField() {
             text = newText
         }
     )
+
+    Spacer(modifier = Modifier.height(30.dp))
+
+
+    //Password TextField:
+
+    var password by rememberSaveable { mutableStateOf("") }
+    var passwordVisibility by remember { mutableStateOf(false) }
+
+    val icon = if (passwordVisibility) {
+        painterResource(id = R.drawable.baseline_visibility_24)
+    } else {
+        painterResource(id = R.drawable.baseline_visibility_off_24)
+    }
+
+    OutlinedTextField(
+        value = password,
+        onValueChange = {
+            password = it
+        },
+        placeholder = { Text(text = "Password") },
+        label = { Text(text = "Password") },
+        trailingIcon = {
+            IconButton(onClick = {
+                passwordVisibility = !passwordVisibility
+            }) {
+                Icon(
+                    painter = icon,
+                    contentDescription = if (passwordVisibility) "Hide Password" else "Show Password",
+                    tint = Color.Gray
+                )
+            }
+        },
+        visualTransformation = if (passwordVisibility) {
+            VisualTransformation.None
+        } else {
+            PasswordVisualTransformation()
+        },
+        keyboardOptions = KeyboardOptions.Default.copy(
+            keyboardType = KeyboardType.Password,
+            capitalization = KeyboardCapitalization.None
+        )
+    )
+
 }
 
 @Preview(showBackground = true)
@@ -209,12 +262,23 @@ fun TestThreePreview() {
                 verticalArrangement = Arrangement.Center
             ) {
                 TestTextField()
-                Spacer(modifier = Modifier.height(30.dp))
+                Spacer(modifier = Modifier.height(50.dp))
                 GoogleButton(
                     text = "Sign Up with Google",
                     loadingText = "Creating Account...",
-                    onClicked = {Log.d("Google Button", "Clicked")}
+                    onClicked = { Log.d("Google Button", "Clicked") }
                 )
+                Spacer(modifier = Modifier.height(30.dp))
+                GradientButton(
+                    text = "Gradient Button",
+                    textColor = Color.White,
+                    gradient = Brush.horizontalGradient(
+                        colors = listOf(
+                            CustomColor1,
+                            CustomColor2
+                        )
+                    )
+                ) { }
             }
         }
     }
