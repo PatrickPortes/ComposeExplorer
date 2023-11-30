@@ -48,6 +48,7 @@ import androidx.compose.ui.unit.dp
 import com.example.composeexplorer.ui.theme.ComposeExplorerTheme
 import com.example.composeexplorer.ui.theme.CustomColor1
 import com.example.composeexplorer.ui.theme.CustomColor2
+import kotlin.math.max
 
 class MainActivity3 : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -156,8 +157,6 @@ fun TestTextField() {
         )
     )
 
-    Spacer(modifier = Modifier.height(30.dp))
-
     //OutLine TextField:
     OutlinedTextField(value = text,
         onValueChange = { newText ->
@@ -177,9 +176,8 @@ fun TestTextField() {
             }
         })
 
-    Spacer(modifier = Modifier.height(30.dp))
-
     //Basic TextField:
+
     BasicTextField(
         modifier = Modifier
             .padding(16.dp)
@@ -189,9 +187,6 @@ fun TestTextField() {
             text = newText
         }
     )
-
-    Spacer(modifier = Modifier.height(30.dp))
-
 
     //Password TextField:
 
@@ -233,6 +228,23 @@ fun TestTextField() {
         )
     )
 
+    //Character Count Limit on Text Field:
+
+    var name by remember { mutableStateOf("") }
+    val maxChar = 10
+
+    OutlinedTextField(
+        value = name,
+        onValueChange = {
+            if (it.length <= maxChar) {
+                name = it
+            }
+        },
+        label = { Text(text = "Name") },
+        placeholder = { Text(text = "Enter Your Name") },
+        maxLines = 1
+    )
+
 }
 
 @Preview(showBackground = true)
@@ -259,16 +271,15 @@ fun TestThreePreview() {
                 modifier = Modifier
                     .padding(20.dp),
                 horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.Center
+                verticalArrangement = Arrangement.spacedBy(25.dp)
             ) {
                 TestTextField()
-                Spacer(modifier = Modifier.height(50.dp))
+                Spacer(modifier = Modifier.height(10.dp))
                 GoogleButton(
                     text = "Sign Up with Google",
                     loadingText = "Creating Account...",
                     onClicked = { Log.d("Google Button", "Clicked") }
                 )
-                Spacer(modifier = Modifier.height(30.dp))
                 GradientButton(
                     text = "Gradient Button",
                     textColor = Color.White,

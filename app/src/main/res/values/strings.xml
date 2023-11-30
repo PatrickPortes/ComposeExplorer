@@ -4,4 +4,5 @@
     <string name="title_activity_main3">MainActivity3</string>
     <string name="title_activity_coilimage">CoilImage</string>
     <string name="title_activity_main_lazy_column">MainActivityLazyColumn</string>
+    <string name="title_activity_custom_uicomponent">CustomUIComponent</string>
 </resources>
