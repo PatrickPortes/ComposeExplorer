@@ -1,4 +1,4 @@
-package com.example.composeexplorer
+package com.example.composeexplorer.activities.functions
 
 import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.LinearOutSlowInEasing
@@ -28,7 +28,6 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import com.example.composeexplorer.ui.theme.ComposeExplorerTheme
-import com.example.composeexplorer.ui.theme.Shapes
 import androidx.compose.foundation.layout.Column as Column
 
 @Composable

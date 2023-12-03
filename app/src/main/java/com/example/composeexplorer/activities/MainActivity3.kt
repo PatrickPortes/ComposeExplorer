@@ -1,4 +1,4 @@
-package com.example.composeexplorer
+package com.example.composeexplorer.activities
 
 import android.os.Bundle
 import android.util.Log
@@ -43,6 +43,10 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.composeexplorer.activities.functions.ExpandableCard
+import com.example.composeexplorer.activities.functions.GoogleButton
+import com.example.composeexplorer.activities.functions.GradientButton
+import com.example.composeexplorer.R
 import com.example.composeexplorer.ui.theme.ComposeExplorerTheme
 import com.example.composeexplorer.ui.theme.CustomColor1
 import com.example.composeexplorer.ui.theme.CustomColor2

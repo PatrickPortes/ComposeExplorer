@@ -1,4 +1,4 @@
-package com.example.composeexplorer
+package com.example.composeexplorer.imagecoil
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -7,9 +7,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.CircularProgressIndicator
@@ -20,10 +18,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import coil.compose.AsyncImage
 import coil.compose.AsyncImagePainter
-import coil.compose.ImagePainter
 import coil.compose.rememberImagePainter
+import com.example.composeexplorer.R
 import com.example.composeexplorer.ui.theme.ComposeExplorerTheme
 
 class CoilImage : ComponentActivity() {

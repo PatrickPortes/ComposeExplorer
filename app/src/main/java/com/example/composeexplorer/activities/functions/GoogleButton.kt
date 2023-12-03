@@ -1,4 +1,4 @@
-package com.example.composeexplorer
+package com.example.composeexplorer.activities.functions
 
 import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.LinearOutSlowInEasing
@@ -29,6 +29,7 @@ import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.composeexplorer.R
 import com.example.composeexplorer.ui.theme.Shapes
 
 @OptIn(ExperimentalMaterial3Api::class)
