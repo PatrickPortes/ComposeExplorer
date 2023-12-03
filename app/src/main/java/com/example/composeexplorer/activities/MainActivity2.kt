@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -14,7 +15,6 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.text.selection.DisableSelection
 import androidx.compose.foundation.text.selection.SelectionContainer
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -34,8 +34,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavHostController
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.example.composeexplorer.R
+import com.example.composeexplorer.navigation.Screen
 import com.example.composeexplorer.ui.theme.ComposeExplorerTheme
 
 class MainActivity2() : ComponentActivity() {
@@ -43,13 +45,7 @@ class MainActivity2() : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             ComposeExplorerTheme {
-                Surface(color = MaterialTheme.colorScheme.background) {
-                    Column(
-                        modifier = Modifier.fillMaxSize()
-                    ) {
-                        CustomTest(text = stringResource(id = R.string.app_name))
-                    }
-                }
+                DefaultTest2(rememberNavController())
             }
         }
     }
@@ -171,35 +167,49 @@ fun CustomText5(
     )
 }
 
+@Composable
+fun DefaultTest2(navController: NavController){
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(10.dp)
+            .clickable {
+                navController.popBackStack()
+
+                //Example of Pop Back Stack:
+                /*navController.navigate(Screen.AnotherScreen.route){
+                    popUpTo(Screen.AnotherScreen.route){
+                        inclusive = true
+                    }
+                }*/
+            },
+        horizontalAlignment = Alignment.Start
+    ) {
+        CustomTest(text = stringResource(id = R.string.app_name))
+        CustomTest2()
+        CustomText3()
+        CustomText4()
+
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(5.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            CustomText5(
+                normalText = "ABC",
+                superText = "123",
+                fontWeight = FontWeight.Bold,
+                fontColor = Color.Black
+            )
+        }
+    }
+}
 
 @Preview(showBackground = true)
 @Composable
 fun TestTwoPreview() {
     ComposeExplorerTheme {
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(10.dp),
-            horizontalAlignment = Alignment.Start
-        ) {
-            CustomTest(text = stringResource(id = R.string.app_name))
-            CustomTest2()
-            CustomText3()
-            CustomText4()
-
-            Column(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(5.dp),
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
-                CustomText5(
-                    normalText = "ABC",
-                    superText = "123",
-                    fontWeight = FontWeight.Bold,
-                    fontColor = Color.Black
-                )
-            }
-        }
+        DefaultTest2(rememberNavController())
     }
 }

@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -28,51 +29,21 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import androidx.navigation.NavHostController
-import androidx.navigation.compose.rememberNavController
-import com.example.composeexplorer.navigation.NavGraph
+import com.example.composeexplorer.navigation.Navigation
 import com.example.composeexplorer.navigation.Screen
 import com.example.composeexplorer.ui.theme.ComposeExplorerTheme
 import com.example.composeexplorer.ui.theme.CustomColor1
 import com.example.composeexplorer.ui.theme.CustomColor2
 import com.example.composeexplorer.ui.theme.Typography
-import org.intellij.lang.annotations.JdkConstants.HorizontalAlignment
 
 class MainActivity : ComponentActivity() {
-
-    //Add Nav Host Controller:
-    //private lateinit var navController: NavHostController
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-
-            val navController = rememberNavController()
-            NavGraph(navController = navController)
-
             ComposeExplorerTheme {
-                Column(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .background(MaterialTheme.colorScheme.background),
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                    verticalArrangement = Arrangement.spacedBy(
-                        space = 50.dp,
-                        alignment = Alignment.CenterVertically
-                    )
-                ) {
-                    //CustomText()
-                    //ColumnTest()
-                    //RowTest()
-                    BoxTest()
-                    Spacer(modifier = Modifier.height(40.dp))
-                    Text(text = "Choose Your Next Screen:")
-                    Row() {
-                        ButtonsNavScreens(
-                            navController = rememberNavController()
-                        )
-                    }
-                }
+                Navigation()
             }
         }
     }
@@ -201,16 +172,38 @@ fun BoxTest() {
 }
 
 @Composable
-fun ButtonsNavScreens(navController: NavHostController) {
+fun DefaultTest(navController: NavController){
 
-    Button(onClick = { navController.navigate(route = Screen.SecondScreen.route) }) {
-        Text(text = "Second Screen")
-    }
-    Spacer(modifier = Modifier.width(10.dp))
-    Button(onClick = { navController.navigate(Screen.ThirdScreen.route) }) {
-        Text(text = "Third Screen")
-    }
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(MaterialTheme.colorScheme.background),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.spacedBy(
+            space = 50.dp,
+            alignment = Alignment.CenterVertically
+        )
+    ) {
+        //CustomText()
+        //ColumnTest()
+        //RowTest()
+        BoxTest()
+        Spacer(modifier = Modifier.height(40.dp))
+        Text(text = "Choose Your Next Screen:")
+        Row() {
+            //ButtonsNavScreens(navController = rememberNavController())
 
+            Button(onClick = { navController.navigate(Screen.SecondScreen.route) }) {
+                Text(text = "Second Screen")
+            }
+
+            Spacer(modifier = Modifier.width(10.dp))
+
+            Button(onClick = { navController.navigate(Screen.ThirdScreen.route) }) {
+                Text(text = "Third Screen")
+            }
+        }
+    }
 }
 
 
@@ -218,28 +211,6 @@ fun ButtonsNavScreens(navController: NavHostController) {
 @Composable
 fun TestOnePreview() {
     ComposeExplorerTheme {
-
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .background(MaterialTheme.colorScheme.background),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.spacedBy(
-                space = 50.dp,
-                alignment = Alignment.CenterVertically
-            )
-        ) {
-            //CustomText()
-            //ColumnTest()
-            //RowTest()
-            BoxTest()
-            Spacer(modifier = Modifier.height(40.dp))
-            Text(text = "Choose Your Next Screen:")
-            Row() {
-                ButtonsNavScreens(
-                    navController = rememberNavController()
-                )
-            }
-        }
+        Navigation()
     }
 }

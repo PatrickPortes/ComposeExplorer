@@ -43,6 +43,8 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.example.composeexplorer.activities.functions.ExpandableCard
 import com.example.composeexplorer.activities.functions.GoogleButton
 import com.example.composeexplorer.activities.functions.GradientButton
@@ -56,37 +58,7 @@ class MainActivity3 : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             ComposeExplorerTheme {
-                Column(
-                    Modifier
-                        .fillMaxSize()
-                        .background(MaterialTheme.colorScheme.background)
-                        .padding(23.dp),
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                    verticalArrangement = Arrangement.Top
-                ) {
-                    ExpandableCard(
-                        textTitle = "My Title",
-                        description = "Lorem ipsum dolor sit amet consectetur adipiscing elit, urna consequat" +
-                                " felis vehicula class ultricies mollis dictumst, aenean non a in donec" +
-                                " nulla. Phasellus ante pellentesque erat cum risus consequat imperdiet" +
-                                " aliquam, integer placerat et turpis mi eros nec lobortis taciti," +
-                                " vehicula nisl litora tellus ligula porttitor metus."
-                    )
-                    Column(
-                        modifier = Modifier
-                            .padding(20.dp),
-                        horizontalAlignment = Alignment.CenterHorizontally,
-                        verticalArrangement = Arrangement.Center
-                    ) {
-                        TestTextField()
-                        Spacer(modifier = Modifier.height(30.dp))
-                        GoogleButton(
-                            text = "Sign Up with Google",
-                            loadingText = "Creating Account...",
-                            onClicked = { Log.d("Google Button", "Clicked") }
-                        )
-                    }
-                }
+                DefaultTest3(rememberNavController())
             }
         }
     }
@@ -248,50 +220,57 @@ fun TestTextField() {
 
 }
 
+@Composable
+fun DefaultTest3(navController: NavController){
+
+    Column(
+        Modifier
+            .fillMaxSize()
+            .background(MaterialTheme.colorScheme.background)
+            .padding(23.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Top
+    ) {
+        ExpandableCard(
+            textTitle = "My Title",
+            description = "Lorem ipsum dolor sit amet consectetur adipiscing elit, urna consequat" +
+                    " felis vehicula class ultricies mollis dictumst, aenean non a in donec" +
+                    " nulla. Phasellus ante pellentesque erat cum risus consequat imperdiet" +
+                    " aliquam, integer placerat et turpis mi eros nec lobortis taciti," +
+                    " vehicula nisl litora tellus ligula porttitor metus."
+        )
+        Column(
+            modifier = Modifier
+                .padding(20.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.spacedBy(25.dp)
+        ) {
+            TestTextField()
+            Spacer(modifier = Modifier.height(10.dp))
+            GoogleButton(
+                text = "Sign Up with Google",
+                loadingText = "Creating Account...",
+                onClicked = { Log.d("Google Button", "Clicked") }
+            )
+            GradientButton(
+                text = "Gradient Button",
+                textColor = Color.White,
+                gradient = Brush.horizontalGradient(
+                    colors = listOf(
+                        CustomColor1,
+                        CustomColor2
+                    )
+                )
+            ) { }
+        }
+    }
+
+}
+
 @Preview(showBackground = true)
 @Composable
 fun TestThreePreview() {
     ComposeExplorerTheme {
-        Column(
-            Modifier
-                .fillMaxSize()
-                .background(MaterialTheme.colorScheme.background)
-                .padding(23.dp),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Top
-        ) {
-            ExpandableCard(
-                textTitle = "My Title",
-                description = "Lorem ipsum dolor sit amet consectetur adipiscing elit, urna consequat" +
-                        " felis vehicula class ultricies mollis dictumst, aenean non a in donec" +
-                        " nulla. Phasellus ante pellentesque erat cum risus consequat imperdiet" +
-                        " aliquam, integer placerat et turpis mi eros nec lobortis taciti," +
-                        " vehicula nisl litora tellus ligula porttitor metus."
-            )
-            Column(
-                modifier = Modifier
-                    .padding(20.dp),
-                horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.spacedBy(25.dp)
-            ) {
-                TestTextField()
-                Spacer(modifier = Modifier.height(10.dp))
-                GoogleButton(
-                    text = "Sign Up with Google",
-                    loadingText = "Creating Account...",
-                    onClicked = { Log.d("Google Button", "Clicked") }
-                )
-                GradientButton(
-                    text = "Gradient Button",
-                    textColor = Color.White,
-                    gradient = Brush.horizontalGradient(
-                        colors = listOf(
-                            CustomColor1,
-                            CustomColor2
-                        )
-                    )
-                ) { }
-            }
-        }
+        DefaultTest3(rememberNavController())
     }
 }
