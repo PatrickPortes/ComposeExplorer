@@ -2,9 +2,12 @@ package com.example.composeexplorer.activities.functions
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
@@ -18,18 +21,23 @@ import com.example.composeexplorer.ui.theme.ComposeExplorerTheme
 fun CircularShapeImage() {
     ComposeExplorerTheme {
 
-        Image(
-            modifier = Modifier
-                .size(300.dp)
-                .clip(CircleShape)
-                .border(
-                    width = 10.dp,
-                    color = Color.Black,
-                    shape = CircleShape
-                ),
-            painter = painterResource(id = R.drawable.image_test_bg),
-            contentDescription = "Circular Image"
-        )
+        Box(
+            modifier = Modifier.fillMaxSize(),
+            Alignment.Center
+        ){
+            Image(
+                modifier = Modifier
+                    .size(300.dp)
+                    .clip(CircleShape)
+                    .border(
+                        width = 10.dp,
+                        color = Color.Black,
+                        shape = CircleShape
+                    ),
+                painter = painterResource(id = R.drawable.image_test_bg),
+                contentDescription = "Circular Image"
+            )
+        }
 
     }
 }
