@@ -1,26 +1,32 @@
 package com.example.composeexplorer.lazycolumn
 
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.lazy.itemsIndexed
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
+import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import com.example.composeexplorer.lazycolumn.repository.PersonRepository
 import com.example.composeexplorer.ui.theme.ComposeExplorerTheme
 
@@ -30,7 +36,7 @@ class MainActivityLazyColumn : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             ComposeExplorerTheme {
-                LazyColumn()
+                LazyColumn(rememberNavController())
                 //StickyHeader()
             }
         }
@@ -38,27 +44,42 @@ class MainActivityLazyColumn : ComponentActivity() {
 }
 
 //LazyColumn:
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun LazyColumn() {
-    val personRepository = PersonRepository()
-    val getAllData = personRepository.getAllData()
+fun LazyColumn(navController: NavHostController) {
 
-    LazyColumn(
-        Modifier.padding(all = 12.dp),
-        verticalArrangement = Arrangement.spacedBy(12.dp)
-    ) {
-        items(items = getAllData) { person ->
-            CustomItem(person = person)
+    var items by remember { mutableStateOf(PersonRepository().getAllData()) }
+
+    Column (
+        horizontalAlignment = Alignment.CenterHorizontally
+    ){
+        LazyColumn(
+            Modifier
+                .fillMaxSize()
+                .padding(all = 12.dp)
+                .weight(1f),
+            verticalArrangement = Arrangement.spacedBy(12.dp)
+        ) {
+            items(items = items) { person ->
+                CustomItem(person = person)
+            }
+
+            //Additionally, ItemsIndexed can also be utilized:
+            /*itemsIndexed(
+                items = getAllData,
+                key = { index, person -> person.id }
+            ) { index, person ->
+                Log.d("MainActivityLazyColumn", index.toString())
+                CustomItem(person = person)
+            }*/
         }
-
-        //Additionally, ItemsIndexed can also be utilized:
-        /*itemsIndexed(
-            items = getAllData,
-            key = { index, person -> person.id }
-        ) { index, person ->
-            Log.d("MainActivityLazyColumn", index.toString())
-            CustomItem(person = person)
-        }*/
+        Button(
+            modifier = Modifier
+                .padding(all = 30.dp),
+            onClick = { items = items.shuffled() }
+        ) {
+            Text(text = "Shuffle")
+        }
     }
 }
 
@@ -96,7 +117,7 @@ fun StickyHeader() {
 @Composable
 fun LazyColumnPreview() {
     ComposeExplorerTheme {
-        LazyColumn()
+        LazyColumn(rememberNavController())
         //StickyHeader()
     }
 }

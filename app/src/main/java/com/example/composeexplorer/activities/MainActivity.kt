@@ -180,7 +180,7 @@ fun DefaultTest(navController: NavController){
             .background(MaterialTheme.colorScheme.background),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(
-            space = 50.dp,
+            space = 30.dp,
             alignment = Alignment.CenterVertically
         )
     ) {
@@ -201,6 +201,11 @@ fun DefaultTest(navController: NavController){
 
             Button(onClick = { navController.navigate(Screen.ThirdScreen.route) }) {
                 Text(text = "Third Screen")
+            }
+        }
+        Row {
+            Button(onClick = { navController.navigate(Screen.LazyColumnScreen.route) }) {
+                Text(text = "LazyColumn Screen")
             }
         }
     }
