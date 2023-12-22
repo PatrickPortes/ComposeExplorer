@@ -1,4 +1,4 @@
-package com.example.composeexplorer.activities.functions
+package com.example.composeexplorer.activities.functions.card
 
 import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.LinearOutSlowInEasing

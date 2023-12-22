@@ -6,5 +6,6 @@ sealed class Screen (val route: String) {
     object SecondScreen: Screen(route = "secondScreen")
     object ThirdScreen: Screen(route = "thirdScreen")
     object LazyColumnScreen: Screen(route = "lazyColumnScreen")
+    object LoadingScreen: Screen(route = "loadingScreen")
 
 }

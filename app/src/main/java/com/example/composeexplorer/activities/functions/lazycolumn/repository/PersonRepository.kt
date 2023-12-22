@@ -1,6 +1,6 @@
-package com.example.composeexplorer.lazycolumn.repository
+package com.example.composeexplorer.activities.functions.lazycolumn.repository
 
-import com.example.composeexplorer.lazycolumn.model.Person
+import com.example.composeexplorer.activities.functions.lazycolumn.model.Person
 
 class PersonRepository {
     fun getAllData(): List<Person> {

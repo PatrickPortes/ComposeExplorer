@@ -1,4 +1,4 @@
-package com.example.composeexplorer.lazycolumn
+package com.example.composeexplorer.activities.functions.lazycolumn
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -27,7 +27,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
-import com.example.composeexplorer.lazycolumn.repository.PersonRepository
+import com.example.composeexplorer.activities.functions.lazycolumn.repository.PersonRepository
 import com.example.composeexplorer.ui.theme.ComposeExplorerTheme
 
 class MainActivityLazyColumn : ComponentActivity() {

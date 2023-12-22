@@ -1,4 +1,4 @@
-package com.example.composeexplorer.activities.functions
+package com.example.composeexplorer.activities.functions.images
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border

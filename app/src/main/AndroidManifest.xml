@@ -15,27 +15,27 @@
         android:theme="@style/Theme.ComposeExplorer"
         tools:targetApi="31">
         <activity
-            android:name=".uicustom.CustomUIComponent"
+            android:name=".activities.functions.uicustom.CustomUIComponent"
             android:exported="false"
             android:label="@string/title_activity_custom_uicomponent"
             android:theme="@style/Theme.ComposeExplorer" />
         <activity
-            android:name=".lazycolumn.MainActivityLazyColumn"
+            android:name=".activities.functions.lazycolumn.MainActivityLazyColumn"
             android:exported="false"
             android:label="@string/title_activity_main_lazy_column"
             android:theme="@style/Theme.ComposeExplorer" />
         <activity
-            android:name=".imagecoil.CoilImage"
+            android:name=".activities.functions.images.imagecoil.CoilImage"
             android:exported="false"
             android:label="@string/title_activity_coilimage"
             android:theme="@style/Theme.ComposeExplorer" />
         <activity
-            android:name=".activities.MainActivity3"
+            android:name=".activities.functions.text.MainActivity3"
             android:exported="false"
             android:label="@string/title_activity_main3"
             android:theme="@style/Theme.ComposeExplorer" />
         <activity
-            android:name=".activities.MainActivity2"
+            android:name=".activities.functions.text.MainActivity2"
             android:exported="false"
             android:label="@string/title_activity_main2"
             android:theme="@style/Theme.ComposeExplorer" />

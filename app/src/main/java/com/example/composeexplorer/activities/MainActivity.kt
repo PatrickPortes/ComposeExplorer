@@ -207,6 +207,10 @@ fun DefaultTest(navController: NavController){
             Button(onClick = { navController.navigate(Screen.LazyColumnScreen.route) }) {
                 Text(text = "LazyColumn Screen")
             }
+            Spacer(modifier = Modifier.width(5.dp))
+            Button(onClick = { navController.navigate(Screen.LoadingScreen.route) }) {
+                Text(text = "Loading Animation")
+            }
         }
     }
 }

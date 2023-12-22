@@ -1,4 +1,4 @@
-package com.example.composeexplorer.activities.functions
+package com.example.composeexplorer.activities.functions.buttons
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box

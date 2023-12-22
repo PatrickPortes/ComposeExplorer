@@ -1,4 +1,4 @@
-package com.example.composeexplorer.activities
+package com.example.composeexplorer.activities.functions.text
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -37,7 +37,6 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.composeexplorer.R
-import com.example.composeexplorer.navigation.Screen
 import com.example.composeexplorer.ui.theme.ComposeExplorerTheme
 
 class MainActivity2() : ComponentActivity() {

@@ -1,4 +1,4 @@
-package com.example.composeexplorer.imagecoil
+package com.example.composeexplorer.activities.functions.images.imagecoil
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity

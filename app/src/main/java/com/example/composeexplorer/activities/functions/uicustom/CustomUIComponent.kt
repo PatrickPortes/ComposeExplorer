@@ -1,4 +1,4 @@
-package com.example.composeexplorer.uicustom
+package com.example.composeexplorer.activities.functions.uicustom
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
