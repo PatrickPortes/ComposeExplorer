@@ -5,7 +5,9 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.composeexplorer.activities.DefaultTest
+import com.example.composeexplorer.activities.functions.animation.AnimatedSelectableItem
 import com.example.composeexplorer.activities.functions.animation.LoadingAnimation
+import com.example.composeexplorer.activities.functions.animation.main.AnimationMainScreen
 import com.example.composeexplorer.activities.functions.lazycolumn.LazyColumn
 import com.example.composeexplorer.activities.functions.text.DefaultTest2
 import com.example.composeexplorer.activities.functions.text.DefaultTest3
@@ -27,8 +29,8 @@ fun Navigation() {
         composable(Screen.LazyColumnScreen.route) {
             LazyColumn(navController = navController)
         }
-        composable(Screen.LoadingScreen.route) {
-            LoadingAnimation(navController = navController)
+        composable(Screen.AnimationScreen.route) {
+            AnimationMainScreen(navController = navController)
         }
 
     }
