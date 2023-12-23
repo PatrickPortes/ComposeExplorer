@@ -5,12 +5,11 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.composeexplorer.activities.DefaultTest
-import com.example.composeexplorer.activities.functions.animation.AnimatedSelectableItem
-import com.example.composeexplorer.activities.functions.animation.LoadingAnimation
 import com.example.composeexplorer.activities.functions.animation.main.AnimationMainScreen
 import com.example.composeexplorer.activities.functions.lazycolumn.LazyColumn
 import com.example.composeexplorer.activities.functions.text.DefaultTest2
 import com.example.composeexplorer.activities.functions.text.DefaultTest3
+import com.example.composeexplorer.activities.functions.uicustom.swipe.SwipeItems
 
 @Composable
 fun Navigation() {
@@ -31,6 +30,9 @@ fun Navigation() {
         }
         composable(Screen.AnimationScreen.route) {
             AnimationMainScreen(navController = navController)
+        }
+        composable(Screen.SwipeableScreen.route) {
+            SwipeItems(navController = navController)
         }
 
     }

@@ -1,4 +1,4 @@
-package com.example.composeexplorer.activities.functions.uicustom
+package com.example.composeexplorer.activities.functions.uicustom.indicator
 
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.animateFloatAsState

@@ -84,4 +84,7 @@ dependencies {
 
     //Material 3:
     implementation("androidx.compose.material3:material3:1.1.2")
+
+    //Swipe:
+    implementation ("me.saket.swipe:swipe:1.2.0")
 }

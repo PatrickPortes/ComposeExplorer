@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
@@ -210,6 +211,11 @@ fun DefaultTest(navController: NavController){
             Spacer(modifier = Modifier.width(5.dp))
             Button(onClick = { navController.navigate(Screen.AnimationScreen.route) }) {
                 Text(text = "Animation Screen")
+            }
+        }
+        Row {
+            Button(onClick = { navController.navigate(Screen.SwipeableScreen.route) }) {
+                Text(text = "Swipeable Screen")
             }
         }
     }
