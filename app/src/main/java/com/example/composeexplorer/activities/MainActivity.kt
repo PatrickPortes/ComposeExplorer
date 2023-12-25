@@ -217,6 +217,10 @@ fun DefaultTest(navController: NavController){
             Button(onClick = { navController.navigate(Screen.SwipeableScreen.route) }) {
                 Text(text = "Swipeable Screen")
             }
+            Spacer(modifier = Modifier.width(5.dp))
+            Button(onClick = { navController.navigate(Screen.HomeScreen.route) }) {
+                Text(text = "Parcelable Object Screen")
+            }
         }
     }
 }

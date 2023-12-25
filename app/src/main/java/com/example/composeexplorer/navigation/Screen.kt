@@ -9,4 +9,9 @@ sealed class Screen (val route: String) {
     object AnimationScreen: Screen(route = "animationScreen")
     object SwipeableScreen: Screen(route = "swipeableScreen")
 
+
+    //Screens used as examples for passing Parcelable objects with navigation:
+    object HomeScreen: Screen(route = "home_screen")
+    object DetailScreen: Screen(route = "detail_screen")
+
 }

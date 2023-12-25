@@ -1,6 +1,8 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+
+    id("kotlin-parcelize")
 }
 
 android {
@@ -80,11 +82,12 @@ dependencies {
     implementation("io.coil-kt:coil-compose:2.5.0")
 
     //Navigation:
-    implementation ("androidx.navigation:navigation-compose:2.7.6")
+    implementation("androidx.navigation:navigation-compose:2.7.6")
 
     //Material 3:
     implementation("androidx.compose.material3:material3:1.1.2")
 
     //Swipe:
-    implementation ("me.saket.swipe:swipe:1.2.0")
+    implementation("me.saket.swipe:swipe:1.2.0")
+
 }
