@@ -222,6 +222,11 @@ fun DefaultTest(navController: NavController){
                 Text(text = "Parcelable Object Screen")
             }
         }
+        Row {
+            Button(onClick = { navController.navigate(Screen.MutableListScreen.route) }) {
+                Text(text = "mutableStateListOf Screen")
+            }
+        }
     }
 }
 

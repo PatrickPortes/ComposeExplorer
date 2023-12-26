@@ -10,6 +10,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.composeexplorer.activities.DefaultTest
 import com.example.composeexplorer.activities.functions.animation.main.AnimationMainScreen
 import com.example.composeexplorer.activities.functions.lazycolumn.LazyColumn
+import com.example.composeexplorer.activities.functions.list.home.HomeMutableListScreen
 import com.example.composeexplorer.activities.functions.parcelable.model.Person
 import com.example.composeexplorer.activities.functions.parcelable.screens.SharedViewModel
 import com.example.composeexplorer.activities.functions.parcelable.screens.detail.DetailScreen
@@ -65,6 +66,12 @@ fun Navigation() {
 
             //The second approach is implemented within the DetailScreen composable function.
             DetailScreen(navController = navController, sharedViewModel = sharedViewModel)
+        }
+
+
+        // mutableStateListOf Example:
+        composable(Screen.MutableListScreen.route) {
+            HomeMutableListScreen(navController = navController)
         }
 
     }
