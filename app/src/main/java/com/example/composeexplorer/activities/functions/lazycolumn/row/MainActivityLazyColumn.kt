@@ -1,9 +1,8 @@
-package com.example.composeexplorer.activities.functions.lazycolumn
+package com.example.composeexplorer.activities.functions.lazycolumn.row
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.animation.core.tween
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -27,7 +26,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
-import com.example.composeexplorer.activities.functions.lazycolumn.repository.PersonRepository
+import com.example.composeexplorer.activities.functions.lazycolumn.row.repository.PersonRepository
 import com.example.composeexplorer.ui.theme.ComposeExplorerTheme
 
 class MainActivityLazyColumn : ComponentActivity() {

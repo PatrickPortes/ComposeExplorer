@@ -224,7 +224,11 @@ fun DefaultTest(navController: NavController){
         }
         Row {
             Button(onClick = { navController.navigate(Screen.MutableListScreen.route) }) {
-                Text(text = "mutableStateListOf Screen")
+                Text(text = "mutableStateListOf")
+            }
+            Spacer(modifier = Modifier.width(5.dp))
+            Button(onClick = { navController.navigate(Screen.BoxWithConstraintsScreen.route) }) {
+                Text(text = "BoxWithConstraints", textAlign = TextAlign.Justify)
             }
         }
     }

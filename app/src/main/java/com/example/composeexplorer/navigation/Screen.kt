@@ -18,4 +18,8 @@ sealed class Screen (val route: String) {
     // mutableStateListOf Example:
     object MutableListScreen: Screen(route = "mutableListScreen")
 
+
+    // Adaptive Layout with BoxWithConstraints Example:
+    object BoxWithConstraintsScreen: Screen(route = "boxWithConstraintsScreen")
+
 }

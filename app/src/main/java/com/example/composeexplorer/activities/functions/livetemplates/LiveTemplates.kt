@@ -23,7 +23,7 @@ fun LiveTemplateTest() {
 
         // harr = will create a horizontalAlignment:
         horizontalAlignment = Alignment.CenterHorizontally
-        
+
     ){
 
     }

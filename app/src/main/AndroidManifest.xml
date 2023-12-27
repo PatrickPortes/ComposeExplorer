@@ -20,7 +20,7 @@
             android:label="@string/title_activity_custom_uicomponent"
             android:theme="@style/Theme.ComposeExplorer" />
         <activity
-            android:name=".activities.functions.lazycolumn.MainActivityLazyColumn"
+            android:name=".activities.functions.lazycolumn.row.MainActivityLazyColumn"
             android:exported="false"
             android:label="@string/title_activity_main_lazy_column"
             android:theme="@style/Theme.ComposeExplorer" />

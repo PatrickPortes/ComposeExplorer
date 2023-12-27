@@ -1,4 +1,4 @@
-package com.example.composeexplorer.activities.functions.list.viewmodel
+package com.example.composeexplorer.activities.functions.list.mutablestatelistof.viewmodel
 
 import android.annotation.SuppressLint
 import android.util.Log

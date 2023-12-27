@@ -1,4 +1,4 @@
-package com.example.composeexplorer.activities.functions.list.home
+package com.example.composeexplorer.activities.functions.list.mutablestatelistof.home
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -19,7 +19,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
-import com.example.composeexplorer.activities.functions.list.viewmodel.HomeViewModel
+import com.example.composeexplorer.activities.functions.list.mutablestatelistof.viewmodel.HomeViewModel
 import com.example.composeexplorer.ui.theme.ComposeExplorerTheme
 
 // mutableStateListOf:

@@ -1,4 +1,4 @@
-package com.example.composeexplorer.activities.functions.lazycolumn.model
+package com.example.composeexplorer.activities.functions.lazycolumn.row.model
 
 data class Person(
     val id: Int,

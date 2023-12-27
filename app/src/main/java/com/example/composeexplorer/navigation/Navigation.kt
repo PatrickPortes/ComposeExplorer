@@ -1,17 +1,15 @@
 package com.example.composeexplorer.navigation
 
-import android.util.Log
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.composeexplorer.activities.DefaultTest
 import com.example.composeexplorer.activities.functions.animation.main.AnimationMainScreen
-import com.example.composeexplorer.activities.functions.lazycolumn.LazyColumn
-import com.example.composeexplorer.activities.functions.list.home.HomeMutableListScreen
-import com.example.composeexplorer.activities.functions.parcelable.model.Person
+import com.example.composeexplorer.activities.functions.lazycolumn.box.BoxWithConstraintsMain
+import com.example.composeexplorer.activities.functions.lazycolumn.row.LazyColumn
+import com.example.composeexplorer.activities.functions.list.mutablestatelistof.home.HomeMutableListScreen
 import com.example.composeexplorer.activities.functions.parcelable.screens.SharedViewModel
 import com.example.composeexplorer.activities.functions.parcelable.screens.detail.DetailScreen
 import com.example.composeexplorer.activities.functions.parcelable.screens.home.HomeScreen
@@ -72,6 +70,11 @@ fun Navigation() {
         // mutableStateListOf Example:
         composable(Screen.MutableListScreen.route) {
             HomeMutableListScreen(navController = navController)
+        }
+
+        // Adaptive Layout with BoxWithConstraints Example:
+        composable(Screen.BoxWithConstraintsScreen.route) {
+            BoxWithConstraintsMain(navController = navController)
         }
 
     }
