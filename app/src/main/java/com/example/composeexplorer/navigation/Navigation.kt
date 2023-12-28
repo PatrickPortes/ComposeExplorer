@@ -18,6 +18,7 @@ import com.example.composeexplorer.activities.functions.permissions.RequestMulti
 import com.example.composeexplorer.activities.functions.permissions.RequestPermission
 import com.example.composeexplorer.activities.functions.text.DefaultTest2
 import com.example.composeexplorer.activities.functions.text.DefaultTest3
+import com.example.composeexplorer.activities.functions.text.Hyperlink
 import com.example.composeexplorer.activities.functions.uicustom.swipe.SwipeItems
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
 
@@ -95,6 +96,11 @@ fun Navigation() {
 //                    Manifest.permission.CAMERA
 //                )
 //            )
+        }
+
+        // Hyperlink Within a Text Example:
+        composable(Screen.HyperlinkScreen.route) {
+            Hyperlink()
         }
 
     }

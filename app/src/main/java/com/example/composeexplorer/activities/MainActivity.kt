@@ -235,6 +235,10 @@ fun DefaultTest(navController: NavController){
             Button(onClick = { navController.navigate(Screen.PermissionsScreen.route) }) {
                 Text(text = "Permissions Screen")
             }
+            Spacer(modifier = Modifier.width(5.dp))
+            Button(onClick = { navController.navigate(Screen.HyperlinkScreen.route) }) {
+                Text(text = "Hyperlink Screen")
+            }
         }
     }
 }

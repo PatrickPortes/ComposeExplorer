@@ -93,4 +93,7 @@ dependencies {
     //Accompanist - Single/Multiple Permission Request with Jetpack Compose:
     implementation("com.google.accompanist:accompanist-permissions:0.24.9-beta")
 
+    //Extended Material Icons:
+    implementation("androidx.compose.material:material-icons-extended:1.5.4")
+
 }

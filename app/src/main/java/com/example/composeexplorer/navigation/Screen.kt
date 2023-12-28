@@ -26,4 +26,8 @@ sealed class Screen (val route: String) {
     // Single/Multiple Permission Example:
     object PermissionsScreen: Screen(route = "permissionsScreen")
 
+
+    // Hyperlink Within a Text:
+    object HyperlinkScreen: Screen(route = "hyperlinkScreen")
+
 }
