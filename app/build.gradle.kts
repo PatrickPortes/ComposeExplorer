@@ -90,4 +90,7 @@ dependencies {
     //Swipe:
     implementation("me.saket.swipe:swipe:1.2.0")
 
+    //Accompanist - Single/Multiple Permission Request with Jetpack Compose:
+    implementation("com.google.accompanist:accompanist-permissions:0.24.9-beta")
+
 }

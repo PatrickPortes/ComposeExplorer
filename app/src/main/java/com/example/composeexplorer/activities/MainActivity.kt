@@ -231,6 +231,11 @@ fun DefaultTest(navController: NavController){
                 Text(text = "BoxWithConstraints", textAlign = TextAlign.Justify)
             }
         }
+        Row {
+            Button(onClick = { navController.navigate(Screen.PermissionsScreen.route) }) {
+                Text(text = "Permissions Screen")
+            }
+        }
     }
 }
 

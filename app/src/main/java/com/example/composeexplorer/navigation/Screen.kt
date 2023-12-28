@@ -22,4 +22,8 @@ sealed class Screen (val route: String) {
     // Adaptive Layout with BoxWithConstraints Example:
     object BoxWithConstraintsScreen: Screen(route = "boxWithConstraintsScreen")
 
+
+    // Single/Multiple Permission Example:
+    object PermissionsScreen: Screen(route = "permissionsScreen")
+
 }

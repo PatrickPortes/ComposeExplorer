@@ -1,5 +1,6 @@
 package com.example.composeexplorer.navigation
 
+import android.Manifest
 import androidx.compose.runtime.Composable
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
@@ -13,10 +14,14 @@ import com.example.composeexplorer.activities.functions.list.mutablestatelistof.
 import com.example.composeexplorer.activities.functions.parcelable.screens.SharedViewModel
 import com.example.composeexplorer.activities.functions.parcelable.screens.detail.DetailScreen
 import com.example.composeexplorer.activities.functions.parcelable.screens.home.HomeScreen
+import com.example.composeexplorer.activities.functions.permissions.RequestMultiplePermissions
+import com.example.composeexplorer.activities.functions.permissions.RequestPermission
 import com.example.composeexplorer.activities.functions.text.DefaultTest2
 import com.example.composeexplorer.activities.functions.text.DefaultTest3
 import com.example.composeexplorer.activities.functions.uicustom.swipe.SwipeItems
+import com.google.accompanist.permissions.ExperimentalPermissionsApi
 
+@OptIn(ExperimentalPermissionsApi::class)
 @Composable
 fun Navigation() {
 
@@ -75,6 +80,21 @@ fun Navigation() {
         // Adaptive Layout with BoxWithConstraints Example:
         composable(Screen.BoxWithConstraintsScreen.route) {
             BoxWithConstraintsMain(navController = navController)
+        }
+
+        // Single/Multiple Permission Example:
+        composable(Screen.PermissionsScreen.route) {
+
+            //Single Permission:
+            RequestPermission(permission = Manifest.permission.READ_CONTACTS)
+
+            //Multiple Permission:
+//            RequestMultiplePermissions(
+//                permissions = listOf(
+//                    Manifest.permission.READ_CONTACTS,
+//                    Manifest.permission.CAMERA
+//                )
+//            )
         }
 
     }
