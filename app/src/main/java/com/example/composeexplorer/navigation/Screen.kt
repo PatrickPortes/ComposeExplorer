@@ -30,4 +30,13 @@ sealed class Screen (val route: String) {
     // Hyperlink Within a Text:
     object HyperlinkScreen: Screen(route = "hyperlinkScreen")
 
+
+    // Moving Text Animation:
+    object MovingTextScreen: Screen(route = "movingTextScreen")
+
+
+    // Color Picker Component:
+    object ColorPickerScreen: Screen(route = "colorPickerScreen")
+    object ImageColorPickerScreen: Screen(route = "imageColorPickerScreen")
+
 }

@@ -4,7 +4,6 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -13,7 +12,6 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
@@ -31,7 +29,6 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import androidx.navigation.NavHostController
 import com.example.composeexplorer.navigation.Navigation
 import com.example.composeexplorer.navigation.Screen
 import com.example.composeexplorer.ui.theme.ComposeExplorerTheme
@@ -238,6 +235,15 @@ fun DefaultTest(navController: NavController){
             Spacer(modifier = Modifier.width(5.dp))
             Button(onClick = { navController.navigate(Screen.HyperlinkScreen.route) }) {
                 Text(text = "Hyperlink Screen")
+            }
+        }
+        Row {
+            Button(onClick = { navController.navigate(Screen.MovingTextScreen.route) }) {
+                Text(text = "Moving Text Screen")
+            }
+            Spacer(modifier = Modifier.width(5.dp))
+            Button(onClick = { navController.navigate(Screen.ColorPickerScreen.route) }) {
+                Text(text = "Color Picker Screen")
             }
         }
     }

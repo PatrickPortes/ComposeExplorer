@@ -8,13 +8,15 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.composeexplorer.activities.DefaultTest
 import com.example.composeexplorer.activities.functions.animation.main.AnimationMainScreen
+import com.example.composeexplorer.activities.functions.animation.text.MovingTextAnimation
+import com.example.composeexplorer.activities.functions.color.picker.ColorPickerComponent
+import com.example.composeexplorer.activities.functions.color.picker.ImageColorPicker
 import com.example.composeexplorer.activities.functions.lazycolumn.box.BoxWithConstraintsMain
 import com.example.composeexplorer.activities.functions.lazycolumn.row.LazyColumn
 import com.example.composeexplorer.activities.functions.list.mutablestatelistof.home.HomeMutableListScreen
 import com.example.composeexplorer.activities.functions.parcelable.screens.SharedViewModel
 import com.example.composeexplorer.activities.functions.parcelable.screens.detail.DetailScreen
 import com.example.composeexplorer.activities.functions.parcelable.screens.home.HomeScreen
-import com.example.composeexplorer.activities.functions.permissions.RequestMultiplePermissions
 import com.example.composeexplorer.activities.functions.permissions.RequestPermission
 import com.example.composeexplorer.activities.functions.text.DefaultTest2
 import com.example.composeexplorer.activities.functions.text.DefaultTest3
@@ -101,6 +103,19 @@ fun Navigation() {
         // Hyperlink Within a Text Example:
         composable(Screen.HyperlinkScreen.route) {
             Hyperlink()
+        }
+
+        // Moving Text Animation:
+        composable(Screen.MovingTextScreen.route) {
+            MovingTextAnimation()
+        }
+
+        // Color Picker Component:
+        composable(Screen.ColorPickerScreen.route) {
+            ColorPickerComponent(navController = navController)
+        }
+        composable(Screen.ImageColorPickerScreen.route) {
+            ImageColorPicker()
         }
 
     }
