@@ -6,7 +6,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.composeexplorer.activities.DefaultTest
+import com.example.composeexplorer.activities.MainLayout
 import com.example.composeexplorer.activities.functions.animation.main.AnimationMainScreen
 import com.example.composeexplorer.activities.functions.animation.text.MovingTextAnimation
 import com.example.composeexplorer.activities.functions.color.picker.ColorPickerComponent
@@ -35,7 +35,7 @@ fun Navigation() {
     val navController = rememberNavController()
     NavHost(navController = navController, startDestination = Screen.FirstScreen.route) {
         composable(Screen.FirstScreen.route) {
-            DefaultTest(navController = navController)
+            MainLayout(navController = navController)
         }
         composable(Screen.SecondScreen.route) {
             DefaultTest2(navController = navController)

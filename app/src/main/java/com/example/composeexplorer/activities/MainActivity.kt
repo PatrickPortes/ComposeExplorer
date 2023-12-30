@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -12,10 +13,15 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.material3.Button
+import androidx.compose.foundation.layout.wrapContentSize
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -23,6 +29,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
@@ -34,7 +42,6 @@ import com.example.composeexplorer.navigation.Screen
 import com.example.composeexplorer.ui.theme.ComposeExplorerTheme
 import com.example.composeexplorer.ui.theme.CustomColor1
 import com.example.composeexplorer.ui.theme.CustomColor2
-import com.example.composeexplorer.ui.theme.Typography
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,29 +52,6 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Column {
-        Text(
-            text = "Hello $name!",
-            modifier = modifier
-        )
-        Text(
-            text = "Hello!!!",
-            modifier = modifier
-        )
-    }
-}
-
-//First Composable Fun:
-@Composable
-fun CustomText(text: String) {
-    Text(
-        text = text,
-        style = Typography.headlineMedium
-    )
 }
 
 //Columns and Rows:
@@ -170,83 +154,121 @@ fun BoxTest() {
 }
 
 @Composable
-fun DefaultTest(navController: NavController){
+fun TextButton(text: String, onClick: () -> Unit) {
+
+    Box(
+        modifier = Modifier
+            .padding(8.dp)
+            .background(MaterialTheme.colorScheme.primary, shape = RoundedCornerShape(8.dp))
+            .clickable(onClick = onClick)
+            .padding(12.dp)
+            .size(100.dp, 50.dp), // Adjust the size as needed
+    ) {
+        Text(
+            text = text,
+            color = Color.White,
+            textAlign = TextAlign.Center,
+            modifier = Modifier
+                .fillMaxSize()
+                .wrapContentSize(Alignment.Center)
+        )
+    }
+}
+
+@Composable
+fun MainLayout(navController: NavController) {
+
+    val buttonTexts = listOf(
+        "Second Screen", "Third Screen",
+        "LazyColumn Screen", "Animation Screen",
+        "Swipeable Screen", "Parcelable Object Screen",
+        "mutableStateListOf", "Box With Constraints",
+        "Permissions Screen", "Hyperlink Screen",
+        "Moving Text Screen", "Color Picker Screen"
+    )
 
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(MaterialTheme.colorScheme.background),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.spacedBy(
-            space = 30.dp,
-            alignment = Alignment.CenterVertically
-        )
+            .padding(16.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        //CustomText()
-        //ColumnTest()
-        //RowTest()
-        BoxTest()
-        Spacer(modifier = Modifier.height(40.dp))
-        Text(text = "Choose Your Next Screen:")
-        Row() {
-            //ButtonsNavScreens(navController = rememberNavController())
 
-            Button(onClick = { navController.navigate(Screen.SecondScreen.route) }) {
-                Text(text = "Second Screen")
-            }
+        Text(
+            text = "Choose Your Next Screen:",
+            modifier = Modifier.padding(20.dp),
+            style = TextStyle(
+                fontWeight = FontWeight.Bold,
+                fontSize = MaterialTheme.typography.titleLarge.fontSize
+            )
+        )
+        Spacer(modifier = Modifier.height(25.dp))
 
-            Spacer(modifier = Modifier.width(10.dp))
+        LazyColumn {
+            items(items = buttonTexts.chunked(2)) { rowItems ->
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(8.dp),
+                    horizontalArrangement = Arrangement.Center
+                ) {
+                    rowItems.forEach { text ->
+                        // Define different click actions for each button
+                        when (text) {
+                            "Second Screen" -> TextButton(text = text) {
+                                navController.navigate(Screen.SecondScreen.route)
+                            }
 
-            Button(onClick = { navController.navigate(Screen.ThirdScreen.route) }) {
-                Text(text = "Third Screen")
-            }
-        }
-        Row {
-            Button(onClick = { navController.navigate(Screen.LazyColumnScreen.route) }) {
-                Text(text = "LazyColumn Screen")
-            }
-            Spacer(modifier = Modifier.width(5.dp))
-            Button(onClick = { navController.navigate(Screen.AnimationScreen.route) }) {
-                Text(text = "Animation Screen")
-            }
-        }
-        Row {
-            Button(onClick = { navController.navigate(Screen.SwipeableScreen.route) }) {
-                Text(text = "Swipeable Screen")
-            }
-            Spacer(modifier = Modifier.width(5.dp))
-            Button(onClick = { navController.navigate(Screen.HomeScreen.route) }) {
-                Text(text = "Parcelable Object Screen")
-            }
-        }
-        Row {
-            Button(onClick = { navController.navigate(Screen.MutableListScreen.route) }) {
-                Text(text = "mutableStateListOf")
-            }
-            Spacer(modifier = Modifier.width(5.dp))
-            Button(onClick = { navController.navigate(Screen.BoxWithConstraintsScreen.route) }) {
-                Text(text = "BoxWithConstraints", textAlign = TextAlign.Justify)
-            }
-        }
-        Row {
-            Button(onClick = { navController.navigate(Screen.PermissionsScreen.route) }) {
-                Text(text = "Permissions Screen")
-            }
-            Spacer(modifier = Modifier.width(5.dp))
-            Button(onClick = { navController.navigate(Screen.HyperlinkScreen.route) }) {
-                Text(text = "Hyperlink Screen")
-            }
-        }
-        Row {
-            Button(onClick = { navController.navigate(Screen.MovingTextScreen.route) }) {
-                Text(text = "Moving Text Screen")
-            }
-            Spacer(modifier = Modifier.width(5.dp))
-            Button(onClick = { navController.navigate(Screen.ColorPickerScreen.route) }) {
-                Text(text = "Color Picker Screen")
+                            "Third Screen" -> TextButton(text = text) {
+                                navController.navigate(Screen.ThirdScreen.route)
+                            }
+
+                            "LazyColumn Screen" -> TextButton(text = text) {
+                                navController.navigate(Screen.LazyColumnScreen.route)
+                            }
+
+                            "Animation Screen" -> TextButton(text = text) {
+                                navController.navigate(Screen.AnimationScreen.route)
+                            }
+
+                            "Swipeable Screen" -> TextButton(text = text) {
+                                navController.navigate(Screen.SwipeableScreen.route)
+                            }
+
+                            "Parcelable Object Screen" -> TextButton(text = text) {
+                                navController.navigate(Screen.HomeScreen.route)
+                            }
+
+                            "mutableStateListOf" -> TextButton(text = text) {
+                                navController.navigate(Screen.MutableListScreen.route)
+                            }
+
+                            "Box With Constraints" -> TextButton(text = text) {
+                                navController.navigate(Screen.BoxWithConstraintsScreen.route)
+                            }
+
+                            "Permissions Screen" -> TextButton(text = text) {
+                                navController.navigate(Screen.PermissionsScreen.route)
+                            }
+
+                            "Hyperlink Screen" -> TextButton(text = text) {
+                                navController.navigate(Screen.HyperlinkScreen.route)
+                            }
+
+                            "Moving Text Screen" -> TextButton(text = text) {
+                                navController.navigate(Screen.MovingTextScreen.route)
+                            }
+
+                            "Color Picker Screen" -> TextButton(text = text) {
+                                navController.navigate(Screen.ColorPickerScreen.route)
+                            }
+                        }
+                    }
+                }
             }
         }
     }
+
 }
 
 
