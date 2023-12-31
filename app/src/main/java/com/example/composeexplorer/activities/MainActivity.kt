@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -190,16 +191,17 @@ fun MainLayout(navController: NavController) {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(16.dp),
+            .background(if (isSystemInDarkTheme()) Color.Black else Color.White),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
 
         Text(
             text = "Choose Your Next Screen:",
-            modifier = Modifier.padding(20.dp),
+            modifier = Modifier.padding(30.dp),
             style = TextStyle(
                 fontWeight = FontWeight.Bold,
-                fontSize = MaterialTheme.typography.titleLarge.fontSize
+                fontSize = MaterialTheme.typography.titleLarge.fontSize,
+                color = if (isSystemInDarkTheme()) Color.White else Color.Black
             )
         )
         Spacer(modifier = Modifier.height(25.dp))
@@ -274,8 +276,9 @@ fun MainLayout(navController: NavController) {
 
 @Preview(showBackground = true)
 @Composable
-fun TestOnePreview() {
+fun MainLayoutPreview() {
     ComposeExplorerTheme {
         Navigation()
+        //MainLayout()
     }
 }

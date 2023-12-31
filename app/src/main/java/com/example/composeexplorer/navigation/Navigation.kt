@@ -18,9 +18,9 @@ import com.example.composeexplorer.activities.functions.parcelable.screens.Share
 import com.example.composeexplorer.activities.functions.parcelable.screens.detail.DetailScreen
 import com.example.composeexplorer.activities.functions.parcelable.screens.home.HomeScreen
 import com.example.composeexplorer.activities.functions.permissions.RequestPermission
-import com.example.composeexplorer.activities.functions.text.DefaultTest2
-import com.example.composeexplorer.activities.functions.text.DefaultTest3
 import com.example.composeexplorer.activities.functions.text.Hyperlink
+import com.example.composeexplorer.activities.functions.text.TextFieldLayout
+import com.example.composeexplorer.activities.functions.text.TextLayout
 import com.example.composeexplorer.activities.functions.uicustom.swipe.SwipeItems
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
 
@@ -38,10 +38,10 @@ fun Navigation() {
             MainLayout(navController = navController)
         }
         composable(Screen.SecondScreen.route) {
-            DefaultTest2(navController = navController)
+            TextLayout(navController = navController)
         }
         composable(Screen.ThirdScreen.route) {
-            DefaultTest3(navController = navController)
+            TextFieldLayout(navController = navController)
         }
         composable(Screen.LazyColumnScreen.route) {
             LazyColumn(navController = navController)

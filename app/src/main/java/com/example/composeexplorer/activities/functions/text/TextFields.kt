@@ -1,9 +1,6 @@
 package com.example.composeexplorer.activities.functions.text
 
-import android.os.Bundle
 import android.util.Log
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -23,7 +20,6 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
-import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -45,28 +41,16 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-import com.example.composeexplorer.activities.functions.card.ExpandableCard
+import com.example.composeexplorer.R
 import com.example.composeexplorer.activities.functions.buttons.GoogleButton
 import com.example.composeexplorer.activities.functions.buttons.GradientButton
-import com.example.composeexplorer.R
+import com.example.composeexplorer.activities.functions.card.ExpandableCard
 import com.example.composeexplorer.ui.theme.ComposeExplorerTheme
 import com.example.composeexplorer.ui.theme.CustomColor1
 import com.example.composeexplorer.ui.theme.CustomColor2
 
-class MainActivity3 : ComponentActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContent {
-            ComposeExplorerTheme {
-                DefaultTest3(rememberNavController())
-            }
-        }
-    }
-}
-
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun TestTextField() {
+fun TextField() {
 
     var text by remember {
         mutableStateOf("Type Your Email Here...")
@@ -85,7 +69,7 @@ fun TestTextField() {
         //readOnly = true
 
         //Label Title on the Top of the TextField:
-        label = { Text(text = "Email:") },
+        label = { androidx.compose.material3.Text(text = "Email:") },
 
         //Single/Multiple Lines:
         singleLine = true,
@@ -136,7 +120,7 @@ fun TestTextField() {
             text = newText
         },
 
-        label = { Text(text = "Edit:") },
+        label = { androidx.compose.material3.Text(text = "Edit:") },
 
         singleLine = true,
 
@@ -177,8 +161,8 @@ fun TestTextField() {
         onValueChange = {
             password = it
         },
-        placeholder = { Text(text = "Password") },
-        label = { Text(text = "Password") },
+        placeholder = { androidx.compose.material3.Text(text = "Password") },
+        label = { androidx.compose.material3.Text(text = "Password") },
         trailingIcon = {
             IconButton(onClick = {
                 passwordVisibility = !passwordVisibility
@@ -213,15 +197,15 @@ fun TestTextField() {
                 name = it
             }
         },
-        label = { Text(text = "Name") },
-        placeholder = { Text(text = "Enter Your Name") },
+        label = { androidx.compose.material3.Text(text = "Name") },
+        placeholder = { androidx.compose.material3.Text(text = "Enter Your Name") },
         maxLines = 1
     )
 
 }
 
 @Composable
-fun DefaultTest3(navController: NavController){
+fun TextFieldLayout(navController: NavController){
 
     Column(
         Modifier
@@ -245,7 +229,7 @@ fun DefaultTest3(navController: NavController){
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.spacedBy(25.dp)
         ) {
-            TestTextField()
+            TextField()
             Spacer(modifier = Modifier.height(10.dp))
             GoogleButton(
                 text = "Sign Up with Google",
@@ -269,8 +253,8 @@ fun DefaultTest3(navController: NavController){
 
 @Preview(showBackground = true)
 @Composable
-fun TestThreePreview() {
+fun TextFieldLayoutPreview() {
     ComposeExplorerTheme {
-        DefaultTest3(rememberNavController())
+        TextFieldLayout(rememberNavController())
     }
 }

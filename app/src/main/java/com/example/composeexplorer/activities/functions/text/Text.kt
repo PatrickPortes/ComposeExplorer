@@ -1,8 +1,5 @@
 package com.example.composeexplorer.activities.functions.text
 
-import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -38,17 +35,6 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.composeexplorer.R
 import com.example.composeexplorer.ui.theme.ComposeExplorerTheme
-
-class MainActivity2() : ComponentActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContent {
-            ComposeExplorerTheme {
-                DefaultTest2(rememberNavController())
-            }
-        }
-    }
-}
 
 /*  Text Modifier Order of Execution, String Resource,
     Light and Dark Mode Support (MaterialTheme),
@@ -167,7 +153,7 @@ fun CustomText5(
 }
 
 @Composable
-fun DefaultTest2(navController: NavController){
+fun TextLayout(navController: NavController){
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -207,8 +193,8 @@ fun DefaultTest2(navController: NavController){
 
 @Preview(showBackground = true)
 @Composable
-fun TestTwoPreview() {
+fun TextLayoutPreview() {
     ComposeExplorerTheme {
-        DefaultTest2(rememberNavController())
+        TextLayout(rememberNavController())
     }
 }
