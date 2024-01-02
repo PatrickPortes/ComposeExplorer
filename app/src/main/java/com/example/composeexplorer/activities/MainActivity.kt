@@ -185,7 +185,8 @@ fun MainLayout(navController: NavController) {
         "Swipeable Screen", "Parcelable Object Screen",
         "mutableStateListOf", "Box With Constraints",
         "Permissions Screen", "Hyperlink Screen",
-        "Moving Text Screen", "Color Picker Screen"
+        "Moving Text Screen", "Color Picker Screen",
+        "Scrolled List Screen",
     )
 
     Column(
@@ -263,6 +264,10 @@ fun MainLayout(navController: NavController) {
 
                             "Color Picker Screen" -> TextButton(text = text) {
                                 navController.navigate(Screen.ColorPickerScreen.route)
+                            }
+
+                            "Scrolled List Screen" -> TextButton(text = text) {
+                                navController.navigate(Screen.ScrolledListScreen.route)
                             }
                         }
                     }

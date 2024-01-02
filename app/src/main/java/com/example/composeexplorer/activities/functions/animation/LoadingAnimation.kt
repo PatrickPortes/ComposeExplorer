@@ -43,7 +43,7 @@ fun LoadingAnimation(
     Column(
         modifier = Modifier
             .background(MaterialTheme.colorScheme.background)
-            .padding(top = 100.dp),
+            .padding(all = 50.dp),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {

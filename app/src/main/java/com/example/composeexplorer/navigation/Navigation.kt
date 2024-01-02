@@ -7,12 +7,14 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.composeexplorer.activities.MainLayout
+import com.example.composeexplorer.activities.functions.animation.AnimatedTopBar
 import com.example.composeexplorer.activities.functions.animation.main.AnimationMainScreen
 import com.example.composeexplorer.activities.functions.animation.text.MovingTextAnimation
 import com.example.composeexplorer.activities.functions.color.picker.ColorPickerComponent
 import com.example.composeexplorer.activities.functions.color.picker.ImageColorPicker
 import com.example.composeexplorer.activities.functions.lazycolumn.box.BoxWithConstraintsMain
 import com.example.composeexplorer.activities.functions.lazycolumn.row.LazyColumn
+import com.example.composeexplorer.activities.functions.lazycolumn.scroll.Scrolled
 import com.example.composeexplorer.activities.functions.list.mutablestatelistof.home.HomeMutableListScreen
 import com.example.composeexplorer.activities.functions.parcelable.screens.SharedViewModel
 import com.example.composeexplorer.activities.functions.parcelable.screens.detail.DetailScreen
@@ -116,6 +118,16 @@ fun Navigation() {
         }
         composable(Screen.ImageColorPickerScreen.route) {
             ImageColorPicker()
+        }
+
+        // isScrolled Extension Function:
+        composable(Screen.ScrolledListScreen.route) {
+            Scrolled()
+        }
+
+        // Collapsing Top Bar Animation:
+        composable(Screen.AnimatedTopBarScreen.route) {
+            AnimatedTopBar(navController = navController)
         }
 
     }

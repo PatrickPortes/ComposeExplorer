@@ -39,4 +39,11 @@ sealed class Screen (val route: String) {
     object ColorPickerScreen: Screen(route = "colorPickerScreen")
     object ImageColorPickerScreen: Screen(route = "imageColorPickerScreen")
 
+
+    // isScrolled Extension Function:
+    object ScrolledListScreen: Screen(route = "scrolledListScreen")
+
+
+    // Collapsing Top Bar Animation:
+    object AnimatedTopBarScreen: Screen(route = "AnimatedTopBarScreen")
 }
