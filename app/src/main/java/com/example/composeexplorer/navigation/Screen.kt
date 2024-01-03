@@ -45,5 +45,9 @@ sealed class Screen (val route: String) {
 
 
     // Collapsing Top Bar Animation:
-    object AnimatedTopBarScreen: Screen(route = "AnimatedTopBarScreen")
+    object AnimatedTopBarScreen: Screen(route = "animatedTopBarScreen")
+
+
+    // Example Screen:
+    object ExampleScreen: Screen(route = "exampleScreen")
 }

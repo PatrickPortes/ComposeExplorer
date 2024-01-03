@@ -186,7 +186,7 @@ fun MainLayout(navController: NavController) {
         "mutableStateListOf", "Box With Constraints",
         "Permissions Screen", "Hyperlink Screen",
         "Moving Text Screen", "Color Picker Screen",
-        "Scrolled List Screen",
+        "Scrolled List Screen", "Example Screen"
     )
 
     Column(
@@ -269,6 +269,10 @@ fun MainLayout(navController: NavController) {
                             "Scrolled List Screen" -> TextButton(text = text) {
                                 navController.navigate(Screen.ScrolledListScreen.route)
                             }
+
+                            "Example Screen" -> TextButton(text = text) {
+                                navController.navigate(Screen.ExampleScreen.route)
+                            }
                         }
                     }
                 }
@@ -284,6 +288,5 @@ fun MainLayout(navController: NavController) {
 fun MainLayoutPreview() {
     ComposeExplorerTheme {
         Navigation()
-        //MainLayout()
     }
 }

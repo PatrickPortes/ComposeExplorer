@@ -12,6 +12,7 @@ import com.example.composeexplorer.activities.functions.animation.main.Animation
 import com.example.composeexplorer.activities.functions.animation.text.MovingTextAnimation
 import com.example.composeexplorer.activities.functions.color.picker.ColorPickerComponent
 import com.example.composeexplorer.activities.functions.color.picker.ImageColorPicker
+import com.example.composeexplorer.activities.functions.images.imagecoil.PhotoPicker
 import com.example.composeexplorer.activities.functions.lazycolumn.box.BoxWithConstraintsMain
 import com.example.composeexplorer.activities.functions.lazycolumn.row.LazyColumn
 import com.example.composeexplorer.activities.functions.lazycolumn.scroll.Scrolled
@@ -130,6 +131,10 @@ fun Navigation() {
             AnimatedTopBar(navController = navController)
         }
 
+        // Example Screen:
+        composable(Screen.ExampleScreen.route) {
+            PhotoPicker()
+        }
     }
 
 }
