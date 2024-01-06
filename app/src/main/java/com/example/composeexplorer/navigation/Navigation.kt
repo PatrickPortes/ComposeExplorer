@@ -1,6 +1,8 @@
 package com.example.composeexplorer.navigation
 
 import android.Manifest
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.compose.runtime.Composable
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
@@ -12,6 +14,7 @@ import com.example.composeexplorer.activities.functions.animation.main.Animation
 import com.example.composeexplorer.activities.functions.animation.text.MovingTextAnimation
 import com.example.composeexplorer.activities.functions.color.picker.ColorPickerComponent
 import com.example.composeexplorer.activities.functions.color.picker.ImageColorPicker
+import com.example.composeexplorer.activities.functions.dialogs.picker.DateTimePicker
 import com.example.composeexplorer.activities.functions.images.imagecoil.PhotoPicker
 import com.example.composeexplorer.activities.functions.lazycolumn.box.BoxWithConstraintsMain
 import com.example.composeexplorer.activities.functions.lazycolumn.row.LazyColumn
@@ -24,9 +27,11 @@ import com.example.composeexplorer.activities.functions.permissions.RequestPermi
 import com.example.composeexplorer.activities.functions.text.Hyperlink
 import com.example.composeexplorer.activities.functions.text.TextFieldLayout
 import com.example.composeexplorer.activities.functions.text.TextLayout
+import com.example.composeexplorer.activities.functions.uicustom.effect.BlurEffect
 import com.example.composeexplorer.activities.functions.uicustom.swipe.SwipeItems
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
 
+@RequiresApi(Build.VERSION_CODES.O)
 @OptIn(ExperimentalPermissionsApi::class)
 @Composable
 fun Navigation() {
@@ -134,6 +139,16 @@ fun Navigation() {
         // Example Screen:
         composable(Screen.ExampleScreen.route) {
             PhotoPicker()
+        }
+
+        // Blur Effect:
+        composable(Screen.BlurEffectScreen.route) {
+            BlurEffect()
+        }
+
+        // Date Time Picker:
+        composable(Screen.DateTimeScreen.route) {
+            DateTimePicker()
         }
     }
 

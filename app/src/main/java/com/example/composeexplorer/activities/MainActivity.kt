@@ -186,7 +186,8 @@ fun MainLayout(navController: NavController) {
         "mutableStateListOf", "Box With Constraints",
         "Permissions Screen", "Hyperlink Screen",
         "Moving Text Screen", "Color Picker Screen",
-        "Scrolled List Screen", "Example Screen"
+        "Scrolled List Screen", "Example Screen",
+        "Blur Effect Screen", "Date Time Picker Screen",
     )
 
     Column(
@@ -272,6 +273,14 @@ fun MainLayout(navController: NavController) {
 
                             "Example Screen" -> TextButton(text = text) {
                                 navController.navigate(Screen.ExampleScreen.route)
+                            }
+
+                            "Blur Effect Screen" -> TextButton(text = text) {
+                                navController.navigate(Screen.BlurEffectScreen.route)
+                            }
+
+                            "Date Time Picker Screen" -> TextButton(text = text) {
+                                navController.navigate(Screen.DateTimeScreen.route)
                             }
                         }
                     }

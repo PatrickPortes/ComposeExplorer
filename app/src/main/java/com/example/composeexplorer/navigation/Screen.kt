@@ -50,4 +50,12 @@ sealed class Screen (val route: String) {
 
     // Example Screen:
     object ExampleScreen: Screen(route = "exampleScreen")
+
+
+    // Blur Effect:
+    object BlurEffectScreen: Screen(route = "blurEffectScreen")
+
+
+    // Date Time Picker:
+    object DateTimeScreen: Screen(route = "dateTimeScreen")
 }

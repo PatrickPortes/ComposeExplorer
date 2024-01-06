@@ -96,6 +96,11 @@ dependencies {
     //Extended Material Icons:
     implementation("androidx.compose.material:material-icons-extended:1.5.4")
 
-    // Color Picker Compose
+    //Color Picker Compose
     implementation("com.github.skydoves:colorpicker-compose:1.0.0")
+
+    //Material 3 - Date/Time Pickers (Core/Calendar/Clock):
+    implementation("com.maxkeppeler.sheets-compose-dialogs:core:1.0.2")
+    implementation("com.maxkeppeler.sheets-compose-dialogs:calendar:1.0.2")
+    implementation("com.maxkeppeler.sheets-compose-dialogs:clock:1.0.2")
 }
