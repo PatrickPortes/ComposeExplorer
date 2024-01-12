@@ -10,6 +10,8 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.composeexplorer.activities.MainLayout
 import com.example.composeexplorer.activities.functions.animation.AnimatedTopBar
+import com.example.composeexplorer.activities.functions.animation.MovingAnimation
+import com.example.composeexplorer.activities.functions.animation.lottie.LottieAnimationFun
 import com.example.composeexplorer.activities.functions.animation.main.AnimationMainScreen
 import com.example.composeexplorer.activities.functions.animation.text.MovingTextAnimation
 import com.example.composeexplorer.activities.functions.color.picker.ColorPickerComponent
@@ -149,6 +151,16 @@ fun Navigation() {
         // Date Time Picker:
         composable(Screen.DateTimeScreen.route) {
             DateTimePicker()
+        }
+
+        // Lottie Animation:
+        composable(Screen.LottieAnimationScreen.route) {
+            LottieAnimationFun()
+        }
+
+        // Moving Animation:
+        composable(Screen.MovingAnimationScreen.route) {
+            MovingAnimation()
         }
     }
 

@@ -58,4 +58,12 @@ sealed class Screen (val route: String) {
 
     // Date Time Picker:
     object DateTimeScreen: Screen(route = "dateTimeScreen")
+
+
+    // Lottie Animation:
+    object LottieAnimationScreen: Screen(route= "lottieAnimationScreen")
+
+
+    // Moving Animation:
+    object MovingAnimationScreen: Screen(route = "movingAnimationScreen")
 }

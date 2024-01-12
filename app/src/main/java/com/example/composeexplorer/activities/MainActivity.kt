@@ -1,8 +1,10 @@
 package com.example.composeexplorer.activities
 
+import android.os.Build
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.isSystemInDarkTheme
@@ -45,6 +47,7 @@ import com.example.composeexplorer.ui.theme.CustomColor1
 import com.example.composeexplorer.ui.theme.CustomColor2
 
 class MainActivity : ComponentActivity() {
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -188,6 +191,7 @@ fun MainLayout(navController: NavController) {
         "Moving Text Screen", "Color Picker Screen",
         "Scrolled List Screen", "Example Screen",
         "Blur Effect Screen", "Date Time Picker Screen",
+        "Lottie Animation", "Moving Animation",
     )
 
     Column(
@@ -282,6 +286,14 @@ fun MainLayout(navController: NavController) {
                             "Date Time Picker Screen" -> TextButton(text = text) {
                                 navController.navigate(Screen.DateTimeScreen.route)
                             }
+
+                            "Lottie Animation" -> TextButton(text = text) {
+                                navController.navigate(Screen.LottieAnimationScreen.route)
+                            }
+
+                            "Moving Animation" -> TextButton(text = text) {
+                                navController.navigate(Screen.MovingAnimationScreen.route)
+                            }
                         }
                     }
                 }
@@ -292,6 +304,7 @@ fun MainLayout(navController: NavController) {
 }
 
 
+@RequiresApi(Build.VERSION_CODES.O)
 @Preview(showBackground = true)
 @Composable
 fun MainLayoutPreview() {
