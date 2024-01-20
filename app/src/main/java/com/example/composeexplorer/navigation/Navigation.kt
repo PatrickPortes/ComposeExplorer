@@ -9,8 +9,11 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.composeexplorer.activities.MainLayout
+import com.example.composeexplorer.activities.functions.animation.AnimatedSelectableItemScreen
 import com.example.composeexplorer.activities.functions.animation.AnimatedTopBar
+import com.example.composeexplorer.activities.functions.animation.LoadingAnimationScreen
 import com.example.composeexplorer.activities.functions.animation.MovingAnimation
+import com.example.composeexplorer.activities.functions.animation.ShimmerAnimationScreen
 import com.example.composeexplorer.activities.functions.animation.lottie.LottieAnimationFun
 import com.example.composeexplorer.activities.functions.animation.main.AnimationMainScreen
 import com.example.composeexplorer.activities.functions.animation.text.MovingTextAnimation
@@ -161,6 +164,21 @@ fun Navigation() {
         // Moving Animation:
         composable(Screen.MovingAnimationScreen.route) {
             MovingAnimation()
+        }
+
+        // Shimmer Animation:
+        composable(Screen.ShimmerAnimationScreen.route) {
+            ShimmerAnimationScreen()
+        }
+
+        // Loading Animation:
+        composable(Screen.LoadingAnimationScreen.route) {
+            LoadingAnimationScreen()
+        }
+
+        // Selectable Item Animation:
+        composable(Screen.SelectableItemAnimationScreen.route) {
+            AnimatedSelectableItemScreen()
         }
     }
 

@@ -26,14 +26,10 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavHostController
-import androidx.navigation.compose.rememberNavController
-import com.example.composeexplorer.ui.theme.ComposeExplorerTheme
 import kotlinx.coroutines.delay
 
 @Composable
 fun LoadingAnimation(
-    navController: NavHostController,
     modifier: Modifier = Modifier,
     circleSize: Dp = 25.dp,
     circleColor: Color = MaterialTheme.colorScheme.primary,
@@ -108,8 +104,19 @@ fun LoadingAnimation(
 
 }
 
+@Composable
+fun LoadingAnimationScreen(){
+    Column (
+        modifier = Modifier.fillMaxSize().background(MaterialTheme.colorScheme.background),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ){
+        LoadingAnimation()
+    }
+}
+
 @Preview(showBackground = true)
 @Composable
 fun LoadingAnimationPreview() {
-    LoadingAnimation(rememberNavController())
+    LoadingAnimation()
 }

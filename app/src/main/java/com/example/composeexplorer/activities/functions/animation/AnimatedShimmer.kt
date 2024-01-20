@@ -1,4 +1,4 @@
-package com.example.animatedshimmereffect
+package com.example.composeexplorer.activities.functions.animation
 
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import androidx.compose.animation.core.FastOutSlowInEasing
@@ -93,6 +93,19 @@ fun ShimmerGridItem(brush: Brush) {
                     .fillMaxWidth(fraction = 0.9f)
                     .background(brush)
             )
+        }
+    }
+}
+
+@Composable
+fun ShimmerAnimationScreen(){
+    Surface (
+        modifier = Modifier.fillMaxSize()
+    ){
+        Column {
+            repeat(7) {
+                AnimatedShimmer()
+            }
         }
     }
 }

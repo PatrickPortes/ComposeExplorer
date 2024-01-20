@@ -66,4 +66,14 @@ sealed class Screen (val route: String) {
 
     // Moving Animation:
     object MovingAnimationScreen: Screen(route = "movingAnimationScreen")
+
+    // Shimmer Animation:
+    object ShimmerAnimationScreen: Screen(route = "shimmerAnimationScreen")
+
+    // Loading Animation:
+    object LoadingAnimationScreen: Screen(route = "loadingAnimationScreen")
+
+    // Selectable Item Animation:
+    object SelectableItemAnimationScreen: Screen(route = "selectableItemAnimationScreen")
+
 }

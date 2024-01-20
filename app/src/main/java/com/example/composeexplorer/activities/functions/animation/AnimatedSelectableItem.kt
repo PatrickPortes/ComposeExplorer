@@ -44,6 +44,41 @@ import com.example.composeexplorer.ui.theme.ComposeExplorerTheme
 import kotlinx.coroutines.launch
 
 @Composable
+fun AnimatedSelectableItemScreen() {
+
+    var selected by remember { mutableStateOf(false) }
+    var selected2 by remember { mutableStateOf(false) }
+
+    Column (
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(80.dp),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ){
+        AnimatedSelectableItem(
+            selected = selected,
+            title = "Lorem Ipsum",
+            onClick = {
+                selected = !selected
+            }
+        )
+
+        Spacer(modifier = Modifier.height(12.dp))
+
+        AnimatedSelectableItem(
+            selected = selected2,
+            title = "Lorem Ipsum",
+            subtitle = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus et enim eu neque dictum tincidunt id eu nisi. ",
+            onClick = {
+                selected2 = !selected2
+            }
+        )
+    }
+
+}
+
+@Composable
 fun AnimatedSelectableItem(
 
     modifier: Modifier = Modifier,
