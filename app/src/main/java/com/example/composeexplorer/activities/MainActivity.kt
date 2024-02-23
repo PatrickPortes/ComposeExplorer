@@ -192,6 +192,7 @@ fun MainLayout(navController: NavController) {
         "Scrolled List Screen", "Example Screen",
         "Blur Effect Screen", "Date Time Picker Screen",
         "Lottie Animation", "Moving Animation",
+        "State Screen", "Flow Screen"
     )
 
     Column(
@@ -293,6 +294,14 @@ fun MainLayout(navController: NavController) {
 
                             "Moving Animation" -> TextButton(text = text) {
                                 navController.navigate(Screen.MovingAnimationScreen.route)
+                            }
+
+                            "State Screen" -> TextButton(text = text) {
+                                navController.navigate(Screen.StateScreen.route)
+                            }
+
+                            "Flow Screen" -> TextButton(text = text) {
+                                navController.navigate(Screen.FlowScreen.route)
                             }
                         }
                     }

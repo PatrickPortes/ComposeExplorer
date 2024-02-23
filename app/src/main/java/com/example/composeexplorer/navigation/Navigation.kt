@@ -20,6 +20,7 @@ import com.example.composeexplorer.activities.functions.animation.text.MovingTex
 import com.example.composeexplorer.activities.functions.color.picker.ColorPickerComponent
 import com.example.composeexplorer.activities.functions.color.picker.ImageColorPicker
 import com.example.composeexplorer.activities.functions.dialogs.picker.DateTimePicker
+import com.example.composeexplorer.activities.functions.flow.Flow
 import com.example.composeexplorer.activities.functions.images.imagecoil.PhotoPicker
 import com.example.composeexplorer.activities.functions.lazycolumn.box.BoxWithConstraintsMain
 import com.example.composeexplorer.activities.functions.lazycolumn.row.LazyColumn
@@ -29,6 +30,7 @@ import com.example.composeexplorer.activities.functions.parcelable.screens.Share
 import com.example.composeexplorer.activities.functions.parcelable.screens.detail.DetailScreen
 import com.example.composeexplorer.activities.functions.parcelable.screens.home.HomeScreen
 import com.example.composeexplorer.activities.functions.permissions.RequestPermission
+import com.example.composeexplorer.activities.functions.state.State
 import com.example.composeexplorer.activities.functions.text.Hyperlink
 import com.example.composeexplorer.activities.functions.text.TextFieldLayout
 import com.example.composeexplorer.activities.functions.text.TextLayout
@@ -179,6 +181,16 @@ fun Navigation() {
         // Selectable Item Animation:
         composable(Screen.SelectableItemAnimationScreen.route) {
             AnimatedSelectableItemScreen()
+        }
+
+        // State in Jetpack Compose:
+        composable(Screen.StateScreen.route) {
+            State()
+        }
+
+        // Coroutines Flow in Jetpack Compose:
+        composable(Screen.FlowScreen.route) {
+            Flow()
         }
     }
 

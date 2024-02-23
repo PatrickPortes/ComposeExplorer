@@ -76,4 +76,10 @@ sealed class Screen (val route: String) {
     // Selectable Item Animation:
     object SelectableItemAnimationScreen: Screen(route = "selectableItemAnimationScreen")
 
+    // State in Jetpack Compose Screen:
+    object StateScreen: Screen(route = "stateScreen")
+
+    // Coroutines Flow in Jetpack Compose:
+    object FlowScreen: Screen(route = "flowScreen")
+
 }
