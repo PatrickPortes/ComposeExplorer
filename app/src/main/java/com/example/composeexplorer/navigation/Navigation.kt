@@ -22,6 +22,7 @@ import com.example.composeexplorer.activities.functions.color.picker.ImageColorP
 import com.example.composeexplorer.activities.functions.dialogs.picker.DateTimePicker
 import com.example.composeexplorer.activities.functions.flow.Flow
 import com.example.composeexplorer.activities.functions.images.imagecoil.PhotoPicker
+import com.example.composeexplorer.activities.functions.launchedeffect.LaunchedEffect
 import com.example.composeexplorer.activities.functions.lazycolumn.box.BoxWithConstraintsMain
 import com.example.composeexplorer.activities.functions.lazycolumn.row.LazyColumn
 import com.example.composeexplorer.activities.functions.lazycolumn.scroll.Scrolled
@@ -191,6 +192,11 @@ fun Navigation() {
         // Coroutines Flow in Jetpack Compose:
         composable(Screen.FlowScreen.route) {
             Flow()
+        }
+
+        //  Launched Effect:
+        composable(Screen.LaunchedEffectScreen.route) {
+            LaunchedEffect()
         }
     }
 

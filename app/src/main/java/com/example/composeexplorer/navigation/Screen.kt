@@ -82,4 +82,7 @@ sealed class Screen (val route: String) {
     // Coroutines Flow in Jetpack Compose:
     object FlowScreen: Screen(route = "flowScreen")
 
+    // Launched Effect:
+    object LaunchedEffectScreen: Screen(route = "launchedEffectScreen")
+
 }
